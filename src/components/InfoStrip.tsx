@@ -1,4 +1,3 @@
-import React from "react";
 import EmergencyCard from "./EmergencyCard";
 import FeatureCard from "./FeatureCard";
 import { Box } from "@mui/material";
