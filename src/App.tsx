@@ -10,7 +10,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <InfoStrip />
+      {/* <InfoStrip /> */}
       <About />
       <Departments />
       <Contact />

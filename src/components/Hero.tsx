@@ -17,6 +17,8 @@ export default function Hero() {
         />
       </div>
 
+      <div className="absolute inset-0 bg-sky-700/30 backdrop-blur-md -z-[15]"></div>
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-teal-500/90 to-sky-500/85 mix-blend-multiply -z-10"></div>
 
@@ -24,7 +26,7 @@ export default function Hero() {
       <Box className="container mx-auto px-6 md:px-10 lg:px-14 py-28 text-center max-w-4xl">
         {/* Kicker */}
         <div className="uppercase tracking-[3px] text-sm font-bold opacity-95 border border-white/50 rounded-full px-4 py-1 inline-block">
-          HERE AT <span className="opacity-85">“Medbary”</span> WE OFFER
+          HERE AT <span className="opacity-85">“MedBary”</span> WE OFFER
         </div>
 
         {/* Heading */}

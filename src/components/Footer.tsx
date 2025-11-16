@@ -25,7 +25,7 @@ export default function Footer() {
                 className="w-12 h-12 object-contain"
               />
               <span className="text-xl font-semibold tracking-wide text-white">
-                Medbary
+                MedBary
               </span>
             </div>
 
@@ -105,17 +105,13 @@ export default function Footer() {
             </h3>
 
             <ul className="space-y-3 text-slate-400">
-              <li className="flex gap-3 items-start">
-                <LocationOn className="text-slate-300 mt-1" />
-                <span>15 Market St E, Brockville, ON</span>
-              </li>
               <li className="flex gap-3 items-center">
                 <LocalPhone className="text-slate-300" />
-                <span>(613) 342-9800</span>
+                <span>‪+1-514-662-2189‬</span>
               </li>
               <li className="flex gap-3 items-center">
                 <Email className="text-slate-300" />
-                <span>info@medicallabclinic.ca</span>
+                <span>contact@medbary.ca</span>
               </li>
             </ul>
           </div>

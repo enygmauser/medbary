@@ -14,9 +14,7 @@ export default function ContactInfoPanel({ info }) {
         Contact & Hours
       </h2>
 
-      <p className="text-slate-600 mb-4">
-        {info.address} · {info.phone}
-      </p>
+      <p className="text-slate-600 mb-4">{info.phone}</p>
 
       <ul className="text-slate-700 space-y-3 mb-6">
         {info.hours.map((item) => (
