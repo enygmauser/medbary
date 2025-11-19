@@ -31,7 +31,7 @@ export default function PhilosophySection({ content }) {
           >
             <div className="h-3 w-3 mt-2 rounded-full bg-teal-600"></div>
 
-            <p classname="text-slate-700 text-[1.05rem] leading-relaxed">
+            <p className="text-slate-700 text-[1.05rem] leading-relaxed">
               {item}
             </p>
           </motion.div>
