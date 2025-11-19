@@ -11,6 +11,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom"; // <-- IMPORTANT
 
 const GradientAppBar = styled(AppBar)(() => ({
   background: "linear-gradient(90deg, #003b46, #00bcd4)",
@@ -33,13 +34,14 @@ export default function Navbar() {
   const [servicesAnchor, setServicesAnchor] = useState(null);
 
   const menuItems = [
-    "Home",
-    "About",
-    "Departments",
-    "Articles",
-    "Testimonials",
-    "Contact",
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Departments", path: "/departments" },
+    { label: "Articles", path: "/articles" },
+    { label: "Testimonials", path: "/testimonials" },
+    { label: "Contact", path: "/contact" },
   ];
+
   const services = [
     "General Checkup",
     "Heart Care",
@@ -67,14 +69,16 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <Box className="hidden lg:flex items-center gap-8 text-white font-medium text-[15px]">
             {menuItems.map((item) => (
-              <span
-                key={item}
+              <Link
+                key={item.label}
+                to={item.path}
                 className="cursor-pointer hover:text-gray-200 transition"
               >
-                {item}
-              </span>
+                {item.label}
+              </Link>
             ))}
 
+            {/* Services Dropdown (router-compatible if you want) */}
             <Box
               onClick={(e) => setServicesAnchor(e.currentTarget)}
               className="cursor-pointer flex items-center gap-1 hover:text-gray-200 transition"
@@ -83,7 +87,7 @@ export default function Navbar() {
             </Box>
           </Box>
 
-          {/* Services Dropdown */}
+          {/* Dropdown */}
           <AnimatedMenu
             anchorEl={servicesAnchor}
             open={Boolean(servicesAnchor)}
@@ -101,7 +105,7 @@ export default function Navbar() {
             ))}
           </AnimatedMenu>
 
-          {/* Desktop CTA Button */}
+          {/* Desktop CTA */}
           <Button
             variant="contained"
             className="hidden lg:flex"
@@ -116,6 +120,8 @@ export default function Navbar() {
               fontSize: "15px",
               "&:hover": { backgroundColor: "#f3f3f3" },
             }}
+            component={Link}
+            to="/contact"
           >
             Book Now
           </Button>
@@ -144,24 +150,25 @@ export default function Navbar() {
           {/* Mobile Menu */}
           <div className="flex flex-col gap-6 text-[18px] font-medium">
             {menuItems.map((item) => (
-              <span
-                key={item}
+              <Link
+                key={item.label}
+                to={item.path}
                 onClick={() => setDrawerOpen(false)}
                 className="cursor-pointer hover:text-gray-700 transition"
               >
-                {item}
-              </span>
+                {item.label}
+              </Link>
             ))}
 
-            {/* Mobile Accordion for Services */}
+            {/* Services Accordion */}
             <details className="cursor-pointer">
               <summary className="text-lg font-semibold">Services</summary>
               <div className="ml-3 mt-3 flex flex-col gap-3">
                 {services.map((service) => (
                   <span
                     key={service}
-                    onClick={() => setDrawerOpen(false)}
                     className="text-gray-700 hover:text-black transition"
+                    onClick={() => setDrawerOpen(false)}
                   >
                     {service}
                   </span>
@@ -171,9 +178,15 @@ export default function Navbar() {
           </div>
 
           {/* Mobile CTA */}
-          <button className="bg-black text-white w-full mt-8 py-3 rounded-full font-semibold text-[16px]">
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{ mt: 4, py: 2, borderRadius: "50px" }}
+            component={Link}
+            to="/contact"
+          >
             Book Now
-          </button>
+          </Button>
         </Box>
       </Drawer>
     </>

@@ -34,7 +34,7 @@ export default function About() {
           {/* RIGHT IMAGE */}
           <div>
             <img
-              src="https://plus.unsplash.com/premium_photo-1661770160867-2c3a5092ec3b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="/medbary.jpg"
               alt="Clinicians reviewing patient charts in a modern clinic"
               className="w-full rounded-xl shadow-[0_10px_30px_rgba(2,6,23,0.12)] object-cover"
             />
