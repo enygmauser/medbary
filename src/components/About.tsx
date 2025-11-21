@@ -8,17 +8,18 @@ export default function About() {
           {/* LEFT CONTENT */}
           <div>
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              About Medbary
+              About MedBary
             </h2>
 
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              We combine evidence-informed practice with modern diagnostics to
-              deliver high-quality, person-centred care. From routine checkups
-              to complex procedures, our multidisciplinary teams collaborate to
-              achieve outstanding outcomes.
+              We are a global healthcare concierge committed to elevating the
+              medical travel experience. Our AI-driven evaluation system reviews
+              medical records, treatment goals, and physician performance data
+              to match each client with the most suitable specialist worldwide —
+              with accuracy, safety, and personalized care at the core.
             </p>
 
-            <ul className="text-slate-600 space-y-3">
+            {/* <ul className="text-slate-600 space-y-3">
               <li className="flex items-start gap-2">
                 • Comprehensive health assessments
               </li>
@@ -28,7 +29,7 @@ export default function About() {
               <li className="flex items-start gap-2">
                 • Patient-first, culturally sensitive approach
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           {/* RIGHT IMAGE */}

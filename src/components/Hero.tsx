@@ -31,7 +31,7 @@ export default function Hero() {
 
         {/* Heading */}
         <h1 className="text-[clamp(2.2rem,5vw+1rem,4.3rem)] font-extrabold leading-[1.08] mt-4 mb-4">
-          WORLD-CLASS MEDICAL TREATMENT
+          Exclusive Global Healthcare, Tailored to You
         </h1>
 
         {/* Divider */}
@@ -39,9 +39,8 @@ export default function Hero() {
 
         {/* Paragraph */}
         <p className="mx-auto max-w-2xl text-lg opacity-95 leading-relaxed">
-          Your health — your choice — your hope. Build your personal journey to
-          wellness with compassionate care, modern equipment, and a team of
-          experienced specialists.
+          Access world-class medical specialists and elite treatment
+          destinations — with seamless, white-glove coordination.
         </p>
 
         {/* Actions */}
