@@ -1,4 +1,5 @@
 import { Button, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -63,24 +64,25 @@ export default function Hero() {
           </Button>
 
           {/* Ghost CTA */}
-          <Button
-            variant="outlined"
-            href="#about"
-            sx={{
-              color: "white",
-              borderColor: "rgba(255,255,255,0.7)",
-              padding: "10px 22px",
-              textTransform: "none",
-              borderRadius: "12px",
-              fontWeight: 600,
-              "&:hover": {
-                borderColor: "white",
-                backgroundColor: "rgba(255,255,255,0.1)",
-              },
-            }}
-          >
-            Learn More
-          </Button>
+          <Link to="/about">
+            <Button
+              variant="outlined"
+              sx={{
+                color: "white",
+                borderColor: "rgba(255,255,255,0.7)",
+                padding: "10px 22px",
+                textTransform: "none",
+                borderRadius: "12px",
+                fontWeight: 600,
+                "&:hover": {
+                  borderColor: "white",
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                },
+              }}
+            >
+              Learn More
+            </Button>
+          </Link>
         </div>
       </Box>
     </section>

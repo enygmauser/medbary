@@ -1,11 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 -z-20">
+      <div className="absolute inset-0 -z-30">
         <img
           src="https://images.unsplash.com/photo-1655313719493-16ebe4906441?q=80&w=1742&auto=format&fit=crop"
           alt="Healthcare background"
@@ -13,22 +12,68 @@ export default function AboutHeroSection() {
         />
       </div>
 
-      {/* Dark + Color Gradient Overlay */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-900/70 via-slate-900/80 to-slate-900/90"></div>
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 -z-20 bg-gradient-to-b from-slate-900/60 via-slate-900/85 to-slate-900/95"></div>
 
-      {/* Glassmorphic Title Container */}
+      {/* Cyan Glow Overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-cyan-400/20 via-cyan-300/10 to-cyan-500/5 mix-blend-overlay"></div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+        {[...Array(18)].map((_, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0.15, 0.5, 0.15],
+              scale: [0.8, 1.1, 0.8],
+              y: [0, -40],
+            }}
+            transition={{
+              duration: 5 + Math.random() * 6,
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut",
+            }}
+            className="absolute w-2 h-2 bg-cyan-300/40 rounded-full blur-[2px]"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Center Content */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="backdrop-blur-sm bg-white/10 border border-white/20 px-8 py-6 rounded-2xl shadow-xl text-center"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="
+          max-w-3xl px-6 py-10 text-center
+          bg-white/10 backdrop-blur-md
+          border border-cyan-300/30 rounded-3xl
+          shadow-[0_8px_32px_rgba(0,0,0,0.25)]
+        "
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg">
+        <h1
+          className="
+          text-4xl md:text-6xl 
+          font-extrabold text-white 
+          drop-shadow-lg tracking-tight
+        "
+        >
           About Us
         </h1>
 
-        <p className="mt-3 text-slate-200 max-w-lg mx-auto text-lg">
-          Learn more about our mission, values, and commitment to excellence.
+        <p
+          className="
+          mt-4 text-lg md:text-xl 
+          text-cyan-100 leading-relaxed max-w-2xl mx-auto
+        "
+        >
+          Discover our mission, values, and unwavering commitment to delivering
+          exceptional healthcare solutions.
         </p>
       </motion.div>
     </section>

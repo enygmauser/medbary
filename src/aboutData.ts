@@ -14,6 +14,7 @@ worldwide — with accuracy, safety, and personalized care at the core.`,
       "Choice — The ability to select the best doctors anywhere",
       "Clarity — Transparent treatment and travel planning",
       "Comfort — A seamless, dignified experience from start to finish",
+      "Confidentiality — Ensuring your information is protected at all times",
     ],
   },
   discretion: {

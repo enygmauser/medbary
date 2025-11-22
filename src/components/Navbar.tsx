@@ -11,7 +11,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom"; // <-- IMPORTANT
+import { Link } from "react-router-dom"; 
 
 const GradientAppBar = styled(AppBar)(() => ({
   background: "linear-gradient(90deg, #003b46, #00bcd4)",
@@ -55,7 +55,7 @@ export default function Navbar() {
       <GradientAppBar position="sticky">
         <Toolbar className="max-w-7xl mx-auto w-full px-4 flex justify-between items-center">
           {/* Logo */}
-          <Box className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 cursor-pointer">
             <img
               src="/logo.png"
               alt="logo"
@@ -64,7 +64,7 @@ export default function Navbar() {
             <span className="text-white text-xl font-semibold tracking-wide">
               MedBary
             </span>
-          </Box>
+          </Link>
 
           {/* Desktop Menu */}
           <Box className="hidden lg:flex items-center gap-8 text-white font-medium text-[15px]">

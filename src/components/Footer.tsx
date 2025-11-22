@@ -30,8 +30,8 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-400 leading-relaxed">
-              Compassionate care, advanced diagnostics, and experienced
-              specialists — your trusted partner in health.
+              Access world-class medical specialists and elite treatment
+              destinations — with seamless, white-glove coordination.
             </p>
 
             {/* Social Icons */}
