@@ -1,7 +1,12 @@
 import { Button, Box } from "@mui/material";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
+  useEffect(() => {
+    console.log("VITE_BACKEND_URL:", import.meta.env.VITE_BACKEND_URL);
+  }, []);
+
   return (
     <section
       id="home"

@@ -1,5 +1,5 @@
 import { GraphQLClient } from "graphql-request";
 
-export const client = new GraphQLClient("http://localhost:8000/graphql/", {
+export const client = new GraphQLClient(import.meta.env.VITE_BACKEND_URL, {
   credentials: "include",
 });
