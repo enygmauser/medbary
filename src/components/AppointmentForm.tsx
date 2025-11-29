@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { TextField, MenuItem, Button } from "@mui/material";
 import InputRow from "./InputRow";
 
+import { client } from "../graphql/client";
+import { CREATE_APPOINTMENT } from "../graphql/mutations";
+
 export default function AppointmentForm({ departments }) {
   const [form, setForm] = useState({
     name: "",
@@ -11,13 +14,38 @@ export default function AppointmentForm({ departments }) {
     msg: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thanks! We'll contact you shortly.");
-    setForm({ name: "", phone: "", email: "", dept: "", msg: "" });
+    setLoading(true);
+    setSuccess(false);
+    setError("");
+
+    try {
+      const variables = {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        dept: form.dept,
+        message: form.msg,
+      };
+
+      await client.request(CREATE_APPOINTMENT, variables);
+
+      setSuccess(true);
+      setForm({ name: "", phone: "", email: "", dept: "", msg: "" });
+    } catch (err) {
+      console.error(err);
+      setError("Failed to send appointment request.");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -45,11 +73,7 @@ export default function AppointmentForm({ departments }) {
             required
             fullWidth
             variant="outlined"
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "14px",
-              },
-            }}
+            sx={{ "& .MuiOutlinedInput-root": { borderRadius: "14px" } }}
           />
 
           <TextField
@@ -60,9 +84,7 @@ export default function AppointmentForm({ departments }) {
             required
             fullWidth
             variant="outlined"
-            sx={{
-              "& .MuiOutlinedInput-root": { borderRadius: "14px" },
-            }}
+            sx={{ "& .MuiOutlinedInput-root": { borderRadius: "14px" } }}
           />
         </InputRow>
 
@@ -75,9 +97,7 @@ export default function AppointmentForm({ departments }) {
             required
             fullWidth
             variant="outlined"
-            sx={{
-              "& .MuiOutlinedInput-root": { borderRadius: "14px" },
-            }}
+            sx={{ "& .MuiOutlinedInput-root": { borderRadius: "14px" } }}
           />
 
           <TextField
@@ -89,9 +109,7 @@ export default function AppointmentForm({ departments }) {
             required
             fullWidth
             variant="outlined"
-            sx={{
-              "& .MuiOutlinedInput-root": { borderRadius: "14px" },
-            }}
+            sx={{ "& .MuiOutlinedInput-root": { borderRadius: "14px" } }}
           >
             {departments.map((dept) => (
               <MenuItem key={dept} value={dept}>
@@ -111,15 +129,22 @@ export default function AppointmentForm({ departments }) {
           fullWidth
           placeholder="Share any symptoms, preferred dates, etc."
           variant="outlined"
-          sx={{
-            "& .MuiOutlinedInput-root": { borderRadius: "14px" },
-          }}
+          sx={{ "& .MuiOutlinedInput-root": { borderRadius: "14px" } }}
         />
+
+        {success && (
+          <p className="text-green-600 font-semibold">
+            Request sent successfully!
+          </p>
+        )}
+
+        {error && <p className="text-red-600 font-semibold">{error}</p>}
 
         <Button
           type="submit"
           variant="contained"
           fullWidth
+          disabled={loading}
           sx={{
             mt: 1,
             background: "linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%)",
@@ -135,7 +160,7 @@ export default function AppointmentForm({ departments }) {
             },
           }}
         >
-          Send Request
+          {loading ? "Sending..." : "Send Request"}
         </Button>
       </form>
     </div>
