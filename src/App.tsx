@@ -8,6 +8,11 @@ import Home from "./pages/Home";
 import AboutPage from "./pages/About";
 import DepartmentsPage from "./pages/Departments";
 import ContactPage from "./pages/Contact";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
+
+// components
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -19,6 +24,19 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/departments" element={<DepartmentsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+
+        {/* Public admin login page */}
+        <Route path="/admin-login" element={<AdminLogin />} />
+
+        {/* Protected admin page */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
       <Footer />
