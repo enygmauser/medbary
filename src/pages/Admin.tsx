@@ -72,7 +72,8 @@ export default function Admin() {
 
   const filtered = useMemo(() => {
     const list = [...dummyData.data.contactMessages].sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
 
     if (!search.trim()) return list;
