@@ -7,11 +7,11 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+// import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+// import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const GradientAppBar = styled(AppBar)(() => ({
   background: "linear-gradient(90deg, #003b46, #00bcd4)",
@@ -19,36 +19,36 @@ const GradientAppBar = styled(AppBar)(() => ({
   paddingBlock: 12,
 }));
 
-const AnimatedMenu = styled(Menu)(() => ({
-  "& .MuiPaper-root": {
-    animation: "fadeIn 0.18s ease-out",
-  },
-  "@keyframes fadeIn": {
-    from: { opacity: 0, transform: "translateY(-6px)" },
-    to: { opacity: 1, transform: "translateY(0)" },
-  },
-}));
+// const AnimatedMenu = styled(Menu)(() => ({
+//   "& .MuiPaper-root": {
+//     animation: "fadeIn 0.18s ease-out",
+//   },
+//   "@keyframes fadeIn": {
+//     from: { opacity: 0, transform: "translateY(-6px)" },
+//     to: { opacity: 1, transform: "translateY(0)" },
+//   },
+// }));
 
 export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [servicesAnchor, setServicesAnchor] = useState(null);
+  // const [servicesAnchor, setServicesAnchor] = useState(null);
 
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Departments", path: "/departments" },
-    { label: "Articles", path: "/articles" },
-    { label: "Testimonials", path: "/testimonials" },
+    // { label: "Articles", path: "/articles" },
+    // { label: "Testimonials", path: "/testimonials" },
     { label: "Contact", path: "/contact" },
   ];
 
-  const services = [
-    "General Checkup",
-    "Heart Care",
-    "Orthopedics",
-    "Neurology",
-    "Dermatology",
-  ];
+  // const services = [
+  //   "General Checkup",
+  //   "Heart Care",
+  //   "Orthopedics",
+  //   "Neurology",
+  //   "Dermatology",
+  // ];
 
   return (
     <>
@@ -79,16 +79,16 @@ export default function Navbar() {
             ))}
 
             {/* Services Dropdown (router-compatible if you want) */}
-            <Box
+            {/* <Box
               onClick={(e) => setServicesAnchor(e.currentTarget)}
               className="cursor-pointer flex items-center gap-1 hover:text-gray-200 transition"
             >
               Services <KeyboardArrowDownIcon fontSize="small" />
-            </Box>
+            </Box> */}
           </Box>
 
           {/* Dropdown */}
-          <AnimatedMenu
+          {/* <AnimatedMenu
             anchorEl={servicesAnchor}
             open={Boolean(servicesAnchor)}
             onClose={() => setServicesAnchor(null)}
@@ -103,7 +103,7 @@ export default function Navbar() {
                 {service}
               </MenuItem>
             ))}
-          </AnimatedMenu>
+          </AnimatedMenu> */}
 
           {/* Desktop CTA */}
           <Button
@@ -161,7 +161,7 @@ export default function Navbar() {
             ))}
 
             {/* Services Accordion */}
-            <details className="cursor-pointer">
+            {/* <details className="cursor-pointer">
               <summary className="text-lg font-semibold">Services</summary>
               <div className="ml-3 mt-3 flex flex-col gap-3">
                 {services.map((service) => (
@@ -174,7 +174,7 @@ export default function Navbar() {
                   </span>
                 ))}
               </div>
-            </details>
+            </details> */}
           </div>
 
           {/* Mobile CTA */}
